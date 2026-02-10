@@ -27,10 +27,33 @@ public class Main {
 
                 case 1:
                     // TODO: Read input and add Book
+                    System.out.print("Title: ");
+                    String title = scanner.nextLine();
+
+                    System.out.print("Author: ");
+                    String author = scanner.nextLine();
+
+                    System.out.print("Year: ");
+                    int year = scanner.nextInt();
+
+                    library.addBook(new Book(title, author, year));
                     break;
 
                 case 2:
                     // TODO: Read input and add EBook
+                    System.out.print("Title: ");
+                    String etitle = scanner.nextLine();
+
+                    System.out.print("Author: ");
+                    String eauthor = scanner.nextLine();
+
+                    System.out.print("Year: ");
+                    int eyear = scanner.nextInt();
+
+                    System.out.print("File size (MB): ");
+                    double size = scanner.nextDouble();
+
+                    library.addBook(new EBook(etitle, eauthor, eyear, size));
                     break;
 
                 case 3:
@@ -39,14 +62,28 @@ public class Main {
 
                 case 4:
                     // TODO: Search book
+                    System.out.print("Enter title: ");
+                    String search = scanner.nextLine();
+
+                    Book found = library.searchByTitle(search);
+
+                    if (found != null) {
+                        System.out.println(found);
+                    } else {
+                        System.out.println("Book not found.");
+                    }
                     break;
 
                 case 5:
                     // TODO: Borrow book
+                    System.out.print("Enter:");
+                    library.borrowBook(scanner.nextLine());
                     break;
 
                 case 6:
                     // TODO: Return book
+                    System.out.print("Enter:");
+                    library.returnBook(scanner.nextLine());
                     break;
 
                 case 7:
